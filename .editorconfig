@@ -1,0 +1,39 @@
+# Top-level EditorConfig file
+root = true
+
+[*]
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+[*.cs]
+# --- C# Coding Conventions ---
+
+# Use file-scoped namespaces (Modern .NET style)
+# This changes 'namespace Name { ... }' to 'namespace Name;'
+csharp_style_namespace_declarations = file_scoped:suggestion
+
+# Use 'var' when the type is apparent
+csharp_style_var_for_built_in_types = true:suggestion
+csharp_style_var_when_type_is_apparent = true:suggestion
+
+# --- Language Rules ---
+
+# Prefer auto-properties over fields with manual getters/setters
+dotnet_style_prefer_auto_properties = true:suggestion
+
+# Use expression-bodied members for methods/properties (Cleanliness)
+csharp_style_expression_bodied_methods = when_on_single_line:suggestion
+csharp_style_expression_bodied_properties = true:suggestion
+
+# --- Formatting Rules ---
+
+# New line preferences
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+
+# Parentheses preferences
+dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity:silent
