@@ -1,4 +1,4 @@
-﻿using Domain.Enums;
+using Domain.Enums;
 using Domain.Exceptions;
 
 namespace Domain.Entities;
@@ -11,7 +11,12 @@ public class User
     public string Email { get; }
     public string Role { get; }
 
-    public User(Guid id, string userName, string password, string email, string role)
+    public User()
+    {
+        
+    }
+
+    public User(Guid id, string userName, string passwordHash, string email, string role)
     {
         if (id == Guid.Empty)
         {
@@ -20,7 +25,7 @@ public class User
 
         Id = id;
         UserName = userName ?? throw new DomainException("UserName is required!", DomainExceptionCodes.InvalidInput);
-        PasswordHash = password ?? throw new DomainException("Password is required!", DomainExceptionCodes.InvalidInput);
+        PasswordHash = passwordHash ?? throw new DomainException("Password is required!", DomainExceptionCodes.InvalidInput);
         Email = email ?? throw new DomainException("Email is required!", DomainExceptionCodes.InvalidInput);
         Role = role ?? throw new DomainException("Role is required!", DomainExceptionCodes.InvalidInput);
     }
